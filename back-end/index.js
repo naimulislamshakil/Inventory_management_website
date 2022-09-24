@@ -11,6 +11,7 @@ app.use(cors());
 app.use(express.json());
 
 // import route file
+const brandRoute = require('./Route/v1/brand.route');
 
 // mongoose connect with mongodb atlas
 mongoose
@@ -23,6 +24,7 @@ mongoose
 	});
 
 // call route function
+app.use('api/v1/brand', brandRoute);
 
 // Show "/" route
 app.get('/', (req, res) => {

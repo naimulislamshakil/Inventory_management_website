@@ -53,4 +53,4 @@ const brandSchema = mongoose.Schema(
 
 // Create model
 const Brand = mongoose.model('Brand', brandSchema);
-module.children = Brand;
+module.exports = Brand;
