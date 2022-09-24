@@ -2,8 +2,13 @@ const mongoose = require('mongoose');
 const validator = require('validator');
 const { ObjectId } = mongoose.Schema.Types;
 
-const productSchema = mongoose.Schema(
+const stockSchema = mongoose.Schema(
 	{
+		productId: {
+			type: ObjectId,
+			required: true,
+			ref: 'Product',
+		},
 		name: {
 			type: String,
 			required: true,
@@ -46,6 +51,16 @@ const productSchema = mongoose.Schema(
 				},
 			},
 		],
+		price: {
+			type: Number,
+			required: true,
+			min: [0, "Product price can't be negative."],
+		},
+		quantity: {
+			type: Number,
+			required: true,
+			min: [0, "Product quantity can't be negative."],
+		},
 		category: {
 			type: String,
 			required: true,
@@ -59,6 +74,53 @@ const productSchema = mongoose.Schema(
 				required: true,
 			},
 		},
+		status: {
+			type: String,
+			required: true,
+			enum: {
+				values: ['active', 'inActive', 'discontinue'],
+				message: "Status can't be {VALUE}.",
+			},
+		},
+		store: {
+			name: {
+				type: String,
+				required: [true, 'Please Provide a valid store name.'],
+				unique: true,
+				enum: {
+					values: [
+						'dhaka',
+						'chattogram',
+						'rajshahi',
+
+						'khulna',
+						'sylhet',
+						'barisal',
+						'rangpur',
+						'mymensing',
+					],
+					message: '{VALUE} is not a valid name.',
+				},
+				trim: true,
+				lowercase: true,
+			},
+			id: {
+				type: ObjectId,
+				ref: 'Store',
+				required: true,
+			},
+		},
+		supplieBy: {
+			name: {
+				type: String,
+				required: [true, 'Please Provide a valid supplier name.'],
+				trim: true,
+			},
+			id: {
+				type: ObjectId,
+				ref: 'Supplier',
+			},
+		},
 	},
 	{
 		timestamps: true,
@@ -66,5 +128,5 @@ const productSchema = mongoose.Schema(
 );
 
 // Create model
-const Product = mongoose.model('Product', productSchema);
-exports = Product;
+const Stock = mongoose.model('Stock', stockSchema);
+exports = Stock;

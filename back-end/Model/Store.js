@@ -6,7 +6,7 @@ const storeSchema = mongoose.Schema(
 	{
 		name: {
 			type: String,
-			require: [true, 'Please Provide a valid store name.'],
+			required: [true, 'Please Provide a valid store name.'],
 			unique: true,
 			enum: {
 				values: [
