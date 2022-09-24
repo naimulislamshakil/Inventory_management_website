@@ -6,6 +6,12 @@ const colors = require('colors');
 const Port = process.env.PORT || 5000;
 require('dotenv').config();
 
+// Add meddilware
+app.use(cors());
+app.use(express.json());
+
+// import route file
+
 // mongoose connect with mongodb atlas
 mongoose
 	.connect(process.env.MONGOOSE)
@@ -15,6 +21,8 @@ mongoose
 	.catch((err) => {
 		console.log(err);
 	});
+
+// call route function
 
 // Show "/" route
 app.get('/', (req, res) => {
