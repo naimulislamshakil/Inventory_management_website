@@ -31,6 +31,7 @@ app.use('/api/v1/brand', brandRoute);
 // Any Route Not Found
 app.use('*', (req, res) => {
 	const { baseUrl } = req;
+
 	res.send(`<h1>${baseUrl} Not Found!</h1>`);
 });
 

@@ -23,7 +23,10 @@ const brandSchema = mongoose.Schema(
 			type: String,
 			validate: [validator.isURL, 'Please provide a valid url.'],
 		},
-		location: String,
+		location: {
+			type: String,
+			required: [true, 'Please Provide a valid location name.'],
+		},
 		products: [
 			{
 				type: ObjectId,

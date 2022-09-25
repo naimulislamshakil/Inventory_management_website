@@ -19,7 +19,15 @@ module.exports.postBrandCollaction = async (req, res) => {
 
 module.exports.getBrandsCollaction = async (req, res) => {
 	try {
-		const result = await brandService.getBrandsService();
+		const { fields } = req.query;
+		const query = {};
+
+		if (fields) {
+			const split = fields.split(',').join(' ');
+			query.fields = split;
+		}
+
+		const result = await brandService.getBrandsService(query);
 		res.status(200).json({
 			status: 'Successfully',
 			data: result,
@@ -37,6 +45,24 @@ module.exports.getBrandByIdCollaction = async (req, res) => {
 	try {
 		const { id } = req.params;
 		const result = await brandService.getBrandByIdService(id);
+		res.status(200).json({
+			status: 'Successfully',
+			data: result,
+		});
+	} catch (error) {
+		res.status(200).json({
+			status: 'Failed',
+			message: 'Data get not successfully.',
+			error: error.message,
+		});
+	}
+};
+
+module.exports.updateBrandByIdCollaction = async (req, res) => {
+	try {
+		const { id } = req.params;
+
+		const result = await brandService.updateBrandByIdService(id, req.body);
 		res.status(200).json({
 			status: 'Successfully',
 			data: result,
