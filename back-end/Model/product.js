@@ -9,9 +9,8 @@ const productSchema = mongoose.Schema(
 			required: true,
 			unique: [true, 'Please provide a valid unique name.'],
 			minLength: [5, 'Name shout be at least 5 letter.'],
-			maxLength: [20, 'Name is too large.'],
+			maxLength: [100, 'Name is too large.'],
 			trim: true,
-			lowercase: true,
 		},
 		description: {
 			type: String,
@@ -29,21 +28,6 @@ const productSchema = mongoose.Schema(
 			{
 				type: String,
 				required: true,
-				validate: {
-					validator: (value) => {
-						if (Array.isArray(value)) {
-							return false;
-						}
-						let isValid = true;
-						value.forEach((url) => {
-							if (validator.isURL(url)) {
-								isValid = false;
-							}
-						});
-						return isValid;
-					},
-					message: 'Please provide a valid url.',
-				},
 			},
 		],
 		category: {
@@ -67,4 +51,4 @@ const productSchema = mongoose.Schema(
 
 // Create model
 const Product = mongoose.model('Product', productSchema);
-exports = Product;
+module.exports = Product;
