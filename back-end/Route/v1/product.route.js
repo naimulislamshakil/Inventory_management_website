@@ -6,4 +6,6 @@ router
 	.post(productCollaction.postProductCollaction)
 	.get(productCollaction.getProductsCollaction);
 
+router.route('/:id').get(productCollaction.getProductByIdCollaction);
+
 module.exports = router;

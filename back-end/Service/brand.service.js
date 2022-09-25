@@ -17,10 +17,12 @@ module.exports.getBrandsService = async (query) => {
 	const pageCount = Math.ceil(count / limit);
 	return { result, pageCount };
 };
+
 module.exports.getBrandByIdService = async (id) => {
 	const result = await Brand.findById(id);
 	return result;
 };
+
 module.exports.updateBrandByIdService = async (id, data) => {
 	if (data) {
 		const result = await Brand.updateOne(

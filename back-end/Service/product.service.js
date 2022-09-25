@@ -17,3 +17,8 @@ module.exports.getProductsService = async (query) => {
 	const pageCount = Math.ceil(count / limit);
 	return { result, pageCount };
 };
+
+module.exports.getProductByIdService = async (id) => {
+	const result = await Product.findById(id);
+	return result;
+};
