@@ -6,9 +6,12 @@ module.exports.postBrandService = async (data) => {
 };
 
 module.exports.getBrandsService = async (query) => {
-	const { fields } = query;
-	const result = await Brand.find({}).select(fields);
-	return result;
+	const { fields, skip, limit } = query;
+
+	const result = await Brand.find({}).select(fields).skip(skip).limit(limit);
+	const count = await Brand.find({}).count();
+	const pageCount = Math.ceil(count / limit);
+	return { result, pageCount };
 };
 module.exports.getBrandByIdService = async (id) => {
 	const result = await Brand.findById(id);

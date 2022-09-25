@@ -19,12 +19,18 @@ module.exports.postBrandCollaction = async (req, res) => {
 
 module.exports.getBrandsCollaction = async (req, res) => {
 	try {
-		const { fields } = req.query;
+		const { fields, limit = 5, page = 1, sort } = req.query;
 		const query = {};
 
 		if (fields) {
 			const split = fields.split(',').join(' ');
 			query.fields = split;
+		}
+
+		if (page) {
+			const skip = (page - 1) * parseInt(limit);
+			query.skip = skip;
+			query.limit = parseInt(limit);
 		}
 
 		const result = await brandService.getBrandsService(query);
