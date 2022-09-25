@@ -68,3 +68,21 @@ module.exports.getProductByIdCollaction = async (req, res) => {
 		});
 	}
 };
+
+module.exports.updateProductByIdCollaction = async (req, res) => {
+	try {
+		const { id } = req.params;
+
+		const result = await productService.updateProductByIdService(id, req.body);
+		res.status(200).json({
+			status: 'Successfully',
+			data: result,
+		});
+	} catch (error) {
+		res.status(200).json({
+			status: 'Failed',
+			message: 'Data get not successfully.',
+			error: error.message,
+		});
+	}
+};

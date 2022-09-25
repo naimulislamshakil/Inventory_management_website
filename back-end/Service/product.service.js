@@ -22,3 +22,19 @@ module.exports.getProductByIdService = async (id) => {
 	const result = await Product.findById(id);
 	return result;
 };
+
+module.exports.updateProductByIdService = async (id, data) => {
+	// console.log(data);
+	if (data) {
+		const result = await Product.updateOne(
+			{ _id: id },
+			{ $set: data },
+			{
+				runValidators: true,
+			}
+		);
+		return result;
+	} else {
+		const error = 'You not give me a valid data.';
+	}
+};
