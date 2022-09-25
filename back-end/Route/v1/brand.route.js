@@ -7,6 +7,6 @@ router
 	.post(brandCollaction.postBrandCollaction)
 	.get(brandCollaction.getBrandsCollaction);
 
-router.route('/:id').get();
+router.route('/:id').get(brandCollaction.getBrandByIdCollaction);
 
 module.exports = router;

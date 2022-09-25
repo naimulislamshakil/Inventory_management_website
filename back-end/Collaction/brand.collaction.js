@@ -32,3 +32,20 @@ module.exports.getBrandsCollaction = async (req, res) => {
 		});
 	}
 };
+
+module.exports.getBrandByIdCollaction = async (req, res) => {
+	try {
+		const { id } = req.params;
+		const result = await brandService.getBrandByIdService(id);
+		res.status(200).json({
+			status: 'Successfully',
+			data: result,
+		});
+	} catch (error) {
+		res.status(200).json({
+			status: 'Failed',
+			message: 'Data get not successfully.',
+			error: error.message,
+		});
+	}
+};
