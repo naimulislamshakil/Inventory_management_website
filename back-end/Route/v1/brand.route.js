@@ -1,7 +1,12 @@
-const router = require('express').Router();
+const express = require('express');
+const router = express.Router();
 const brandCollaction = require('../../Collaction/brand.collaction');
 
-// Create method
-router.route('/').post(brandCollaction.postBrandCollaction);
+router
+	.route('/')
+	.post(brandCollaction.postBrandCollaction)
+	.get(brandCollaction.getBrandsCollaction);
+
+router.route('/:id').get();
 
 module.exports = router;

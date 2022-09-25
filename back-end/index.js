@@ -6,12 +6,13 @@ const colors = require('colors');
 const Port = process.env.PORT || 5000;
 require('dotenv').config();
 
+// import route file
+const hellowRouter = require('./Route/v1/hellow.route');
+const brandRoute = require('./Route/v1/brand.route');
+
 // Add meddilware
 app.use(cors());
 app.use(express.json());
-
-// import route file
-const brandRoute = require('./Route/v1/brand.route');
 
 // mongoose connect with mongodb atlas
 mongoose
@@ -23,13 +24,9 @@ mongoose
 		console.log(err);
 	});
 
-// call route function
-app.use('api/v1/brand', brandRoute);
-
 // Show "/" route
-app.get('/', (req, res) => {
-	res.send(`<h1>How are you?</h1>`);
-});
+app.use('/', hellowRouter);
+app.use('/api/v1/brand', brandRoute);
 
 // Any Route Not Found
 app.use('*', (req, res) => {
