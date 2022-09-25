@@ -6,9 +6,13 @@ module.exports.postBrandService = async (data) => {
 };
 
 module.exports.getBrandsService = async (query) => {
-	const { fields, skip, limit } = query;
+	const { fields, skip, limit, sort } = query;
 
-	const result = await Brand.find({}).select(fields).skip(skip).limit(limit);
+	const result = await Brand.find({})
+		.select(fields)
+		.skip(skip)
+		.limit(limit)
+		.sort(sort);
 	const count = await Brand.find({}).count();
 	const pageCount = Math.ceil(count / limit);
 	return { result, pageCount };

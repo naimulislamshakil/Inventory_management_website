@@ -33,6 +33,11 @@ module.exports.getBrandsCollaction = async (req, res) => {
 			query.limit = parseInt(limit);
 		}
 
+		if (sort) {
+			const split = fields.split(',').join(' ');
+			query.sort = split;
+		}
+
 		const result = await brandService.getBrandsService(query);
 		res.status(200).json({
 			status: 'Successfully',
