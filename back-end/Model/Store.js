@@ -8,22 +8,15 @@ const storeSchema = mongoose.Schema(
 			type: String,
 			required: [true, 'Please Provide a valid store name.'],
 			unique: true,
-			enum: {
-				values: [
-					'dhaka',
-					'chattogram',
-					'rajshahi',
-
-					'khulna',
-					'sylhet',
-					'barisal',
-					'rangpur',
-					'mymensing',
-				],
-				message: '{VALUE} is not a valid name.',
-			},
 			trim: true,
-			lowercase: true,
+		},
+		location: {
+			type: String,
+			required: true,
+		},
+		phoneNumber: {
+			type: String,
+			required: true,
 		},
 		description: String,
 		status: {
@@ -47,4 +40,4 @@ const storeSchema = mongoose.Schema(
 
 // Create model
 const Store = mongoose.model('Store', storeSchema);
-module.children = Store;
+module.exports = Store;
