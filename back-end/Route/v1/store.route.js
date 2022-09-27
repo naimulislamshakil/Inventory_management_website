@@ -1,14 +1,14 @@
 const router = require('express').Router();
-const storeCollaction = require('../../Collaction/product.collaction');
+const storeCollaction = require('../../Collaction/store.collaction');
 
 router
 	.route('/')
-	.post(storeCollaction.postProductCollaction)
-	.get(storeCollaction.getProductsCollaction);
+	.post(storeCollaction.postStoreCollaction)
+	.get(storeCollaction.getStoresCollaction);
 
 router
 	.route('/:id')
-	.get(storeCollaction.getProductByIdCollaction)
-	.patch(storeCollaction.updateProductByIdCollaction);
+	.get(storeCollaction.getStoreByIdCollaction)
+	.patch(storeCollaction.updateStoreByIdCollaction);
 
 module.exports = router;
