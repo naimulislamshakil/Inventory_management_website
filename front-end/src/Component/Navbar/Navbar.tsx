@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
 	return (
@@ -22,23 +23,84 @@ const Navbar = () => {
 								className="collapse navbar-collapse"
 								id="navbarTogglerDemo01"
 							>
-								<a className="navbar-brand fw-bold fs-3" href="#">
+								<Link className="navbar-brand fw-bold fs-3" to="/">
 									<span className="text-danger">Kana</span>
 									<span className="text-warning">Kata</span>
-								</a>
+								</Link>
 								<ul className="navbar-nav me-auto mb-2 mb-lg-0">
 									<li className="nav-item">
-										<a className="nav-link active" aria-current="page" href="#">
+										<Link
+											className="nav-link active"
+											aria-current="page"
+											to="/"
+										>
 											Home
-										</a>
+										</Link>
+									</li>
+									<li className="nav-item dropdown">
+										<Link
+											className="nav-link text-black dropdown-toggle"
+											to="/"
+											role="button"
+											data-bs-toggle="dropdown"
+											aria-expanded="false"
+										>
+											Category
+										</Link>
+										<ul className="dropdown-menu">
+											<li>
+												<Link className="dropdown-item" to="/">
+													Action
+												</Link>
+											</li>
+											<li>
+												<Link className="dropdown-item" to="/">
+													Another action
+												</Link>
+											</li>
+
+											<li>
+												<Link className="dropdown-item" to="/">
+													Something else here
+												</Link>
+											</li>
+										</ul>
 									</li>
 									<li className="nav-item">
-										<a className="nav-link" href="#">
-											Link
-										</a>
+										<Link
+											className="nav-link active"
+											aria-current="page"
+											to="/"
+										>
+											About Us
+										</Link>
 									</li>
 									<li className="nav-item">
-										<a className="nav-link disabled">Disabled</a>
+										<Link
+											className="nav-link active"
+											aria-current="page"
+											to="/"
+										>
+											Home
+										</Link>
+									</li>
+									<li className="nav-item">
+										<Link
+											className="nav-link active"
+											aria-current="page"
+											to="/"
+										>
+											Home
+										</Link>
+									</li>
+									<li className="nav-item">
+										<Link
+											className="nav-link active"
+											aria-current="page"
+											to="/"
+										>
+											Home
+										</Link>
 									</li>
 								</ul>
 								<form className="d-flex" role="search">
