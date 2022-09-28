@@ -6,11 +6,16 @@
   box-sizing: border-box;
 }
 
+body {
+  overflow-x: none;
+}
+
 .bg {
   background-color: #eee;
 }
 
-nav {
+nav,
+button {
   font-family: "Abyssinica SIL", serif;
 }
 

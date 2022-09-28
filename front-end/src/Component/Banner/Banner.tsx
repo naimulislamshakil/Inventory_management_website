@@ -27,31 +27,55 @@ const Banner = () => {
 								data-bs-slide-to="1"
 								aria-label="Slide 2"
 							></button>
-							<button
-								type="button"
-								data-bs-target="#carouselExampleCaptions"
-								data-bs-slide-to="2"
-								aria-label="Slide 3"
-							></button>
 						</div>
 						<div className="carousel-inner">
 							<div className="carousel-item active">
 								<img src={banner1} className="d-block w-100" alt="..." />
 								<div className="carousel-caption d-none d-md-block">
-									<h5>First slide label</h5>
-									<p>
-										Some representative placeholder content for the first slide.
-									</p>
+									<h5 className="text-dark">Fresh Vegetables, Big discount</h5>
+									<p className="text-dark">Tell your story</p>
+									<div className="input-group mb-3 w-50 mx-auto mt-4">
+										<input
+											type="text"
+											className="form-control rounded-3"
+											placeholder="Enter email"
+											aria-label="Recipient's username"
+											aria-describedby="button-addon2"
+										/>
+										<button
+											className="btn rounded-3 btn-outline-success border-rad ms-3"
+											type="button"
+											id="button-addon2"
+										>
+											Subscribe
+										</button>
+									</div>
 								</div>
 							</div>
 
 							<div className="carousel-item">
 								<img src={banner2} className="d-block w-100" alt="..." />
 								<div className="carousel-caption d-none d-md-block">
-									<h5>Third slide label</h5>
-									<p>
+									<h5 className="text-dark">Fresh Vegetables </h5>
+									<p className="text-dark">
 										Some representative placeholder content for the third slide.
 									</p>
+									<div className="input-group mb-3 w-50 mx-auto mt-4">
+										<input
+											type="text"
+											className="form-control rounded-3"
+											placeholder="Enter email"
+											aria-label="Recipient's username"
+											aria-describedby="button-addon2"
+										/>
+										<button
+											className="btn rounded-3 btn-outline-success  border-rad ms-3"
+											type="button"
+											id="button-addon2"
+										>
+											Subscribe
+										</button>
+									</div>
 								</div>
 							</div>
 						</div>

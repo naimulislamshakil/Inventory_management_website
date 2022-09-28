@@ -1,1 +1,1 @@
-{"version":3,"sources":["App.scss","App.css","../Utilitis/_color.sass"],"names":[],"mappings":"AAEA;;;EAGC,SAAA;EACA,UAAA;EACA,sBAAA;ACDD;;ADGA;EACC,sBELS;ADKV;;ADGA;EACC,oCEZa;ADYd;;ADGA;;;;;;;EAOC,iCErBa;ADqBd","file":"App.css"}
+{"version":3,"sources":["App.scss","App.css","../Utilitis/_color.sass"],"names":[],"mappings":"AAEA;;;EAGC,SAAA;EACA,UAAA;EAEA,sBAAA;ACFD;;ADIA;EACC,gBAAA;ACDD;;ADGA;EACC,sBETS;ADSV;;ADGA;;EAEC,oCEjBa;ADiBd;;ADGA;;;;;;;EAOC,iCE1Ba;AD0Bd","file":"App.css"}

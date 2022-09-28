@@ -5,13 +5,18 @@
 *::before {
 	margin: 0;
 	padding: 0;
+
 	box-sizing: border-box;
+}
+body {
+	overflow-x: none;
 }
 .bg {
 	background-color: $bg-color;
 }
 
-nav {
+nav,
+button {
 	font-family: $primary-font;
 }
 
