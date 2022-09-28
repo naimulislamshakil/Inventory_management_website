@@ -56,10 +56,10 @@ const Banner = () => {
 							<div className="carousel-item">
 								<img src={banner2} className="d-block w-100" alt="..." />
 								<div className="carousel-caption d-none d-md-block">
-									<h5 className="text-dark">Fresh Vegetables </h5>
-									<p className="text-dark">
-										Some representative placeholder content for the third slide.
-									</p>
+									<h5 className="text-dark">
+										Don’t miss amazing, grocery deals
+									</h5>
+									<p className="text-dark">Sign up for the daily newsletter</p>
 									<div className="input-group mb-3 w-50 mx-auto mt-4">
 										<input
 											type="text"
