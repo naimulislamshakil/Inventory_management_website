@@ -1,0 +1,26 @@
+@import '../Utilitis/color.sass';
+
+*,
+*::after,
+*::before {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+.bg {
+	background-color: $bg-color;
+}
+
+nav {
+	font-family: $primary-font;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+	font-family: $sendary-font;
+}

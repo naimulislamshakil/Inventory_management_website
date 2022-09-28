@@ -1,12 +1,12 @@
-import 'bootstrap/dist/css/bootstrap.min.css';
-import './App.css';
+import 'bootstrap/dist/css/bootstrap.css';
+import Navbar from './Component/Navbar/Navbar';
+import './sass/App/App.css';
 
 function App() {
 	return (
-		<div className="container-fluid bg-primary">
-			<div className="container bg-success">
-				<h1>hhdsnh</h1>
-			</div>
+		<div className="bg">
+			<Navbar />
+			<h1>ghvndhgb</h1>
 		</div>
 	);
 }

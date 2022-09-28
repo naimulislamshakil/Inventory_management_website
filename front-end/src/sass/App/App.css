@@ -1,0 +1,25 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.bg {
+  background-color: #eee;
+}
+
+nav {
+  font-family: "Abyssinica SIL", serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  font-family: "Roboto Slab", serif;
+}/*# sourceMappingURL=App.css.map */
