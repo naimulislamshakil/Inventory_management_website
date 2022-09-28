@@ -2,6 +2,61 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const Navbar = () => {
+	const dropdown = (
+		<>
+			<li>
+				<Link className="dropdown-item" to="/">
+					Rice
+				</Link>
+			</li>
+			<li>
+				<Link className="dropdown-item" to="/">
+					Dal
+				</Link>
+			</li>
+
+			<li>
+				<Link className="dropdown-item" to="/">
+					Salt
+				</Link>
+			</li>
+			<li>
+				<Link className="dropdown-item" to="/">
+					Tea & Coffee
+				</Link>
+			</li>
+			<li>
+				<Link className="dropdown-item" to="/">
+					Local Breakfast
+				</Link>
+			</li>
+			<li>
+				<Link className="dropdown-item" to="/">
+					Honey
+				</Link>
+			</li>
+			<li>
+				<Link className="dropdown-item" to="/">
+					Energy Booster
+				</Link>
+			</li>
+			<li>
+				<Link className="dropdown-item" to="/">
+					Jams & Jellies
+				</Link>
+			</li>
+			<li>
+				<Link className="dropdown-item" to="/">
+					Chocolates
+				</Link>
+			</li>
+			<li>
+				<Link className="dropdown-item" to="/">
+					Handwash & Handrub
+				</Link>
+			</li>
+		</>
+	);
 	return (
 		<nav className="container-fluid bg-white">
 			<div className="row">
@@ -39,7 +94,7 @@ const Navbar = () => {
 									</li>
 									<li className="nav-item dropdown">
 										<Link
-											className="nav-link text-black dropdown-toggle"
+											className="nav-link dropdown-toggle"
 											to="/"
 											role="button"
 											data-bs-toggle="dropdown"
@@ -47,59 +102,26 @@ const Navbar = () => {
 										>
 											Category
 										</Link>
-										<ul className="dropdown-menu">
-											<li>
-												<Link className="dropdown-item" to="/">
-													Action
-												</Link>
-											</li>
-											<li>
-												<Link className="dropdown-item" to="/">
-													Another action
-												</Link>
-											</li>
-
-											<li>
-												<Link className="dropdown-item" to="/">
-													Something else here
-												</Link>
-											</li>
-										</ul>
+										<ul className="dropdown-menu">{dropdown}</ul>
 									</li>
 									<li className="nav-item">
-										<Link
-											className="nav-link active"
-											aria-current="page"
-											to="/"
-										>
+										<Link className="nav-link" aria-current="page" to="/">
 											About Us
 										</Link>
 									</li>
 									<li className="nav-item">
-										<Link
-											className="nav-link active"
-											aria-current="page"
-											to="/"
-										>
-											Home
+										<Link className="nav-link" aria-current="page" to="/">
+											Contact Us
 										</Link>
 									</li>
 									<li className="nav-item">
-										<Link
-											className="nav-link active"
-											aria-current="page"
-											to="/"
-										>
-											Home
+										<Link className="nav-link" aria-current="page" to="/">
+											Login
 										</Link>
 									</li>
 									<li className="nav-item">
-										<Link
-											className="nav-link active"
-											aria-current="page"
-											to="/"
-										>
-											Home
+										<Link className="nav-link" aria-current="page" to="/">
+											Register
 										</Link>
 									</li>
 								</ul>
