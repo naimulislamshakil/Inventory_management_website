@@ -1,0 +1,38 @@
+.banner1 {
+  background-image: url("../../img/BackBanner/banner-1.webp");
+  background-size: cover;
+  padding-left: 1rem;
+  height: 250px;
+}
+.banner1 button {
+  width: 130px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.banner2 {
+  background-image: url("../../img/BackBanner/banner-2.webp");
+  background-size: cover;
+  padding-left: 1rem;
+  height: 250px;
+}
+.banner2 button {
+  width: 130px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.banner3 {
+  background-image: url("../../img/BackBanner/banner-3.webp");
+  background-size: cover;
+  padding-left: 1rem;
+  height: 250px;
+}
+.banner3 button {
+  width: 130px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}/*# sourceMappingURL=BackBanner.css.map */
