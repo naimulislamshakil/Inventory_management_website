@@ -4,11 +4,22 @@
   padding-left: 1rem;
   height: 250px;
 }
+.banner1 h5 {
+  transition: transform 0.5s;
+}
+.banner1 h5:hover {
+  transform: translateY(-5px);
+}
 .banner1 button {
   width: 130px;
+  margin-top: 10px;
   display: flex;
   justify-content: center;
   align-items: center;
+  transition: transform 0.5s;
+}
+.banner1 button:hover {
+  transform: translateY(-5px);
 }
 
 .banner2 {
@@ -17,11 +28,22 @@
   padding-left: 1rem;
   height: 250px;
 }
+.banner2 h5 {
+  transition: transform 0.9s;
+}
+.banner2 h5:hover {
+  transform: translateY(-5px);
+}
 .banner2 button {
   width: 130px;
+  margin-top: 10px;
   display: flex;
   justify-content: center;
   align-items: center;
+  transition: transform 0.5s;
+}
+.banner2 button:hover {
+  transform: translateY(-5px);
 }
 
 .banner3 {
@@ -30,9 +52,20 @@
   padding-left: 1rem;
   height: 250px;
 }
+.banner3 h5 {
+  transition: transform 0.5s;
+}
+.banner3 h5:hover {
+  transform: translateY(-5px);
+}
 .banner3 button {
   width: 130px;
+  margin-top: 10px;
   display: flex;
   justify-content: center;
   align-items: center;
+  transition: transform 0.5s;
+}
+.banner3 button:hover {
+  transform: translateY(-5px);
 }/*# sourceMappingURL=BackBanner.css.map */

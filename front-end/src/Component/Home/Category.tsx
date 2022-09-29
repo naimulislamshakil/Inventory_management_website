@@ -27,7 +27,7 @@ const Category = () => {
 				<h2>Featured Categories</h2>
 				<Swiper
 					navigation={true}
-					slidesPerView={8}
+					slidesPerView={5}
 					pagination={true}
 					modules={[Pagination, Navigation]}
 					className="mySwiper"
