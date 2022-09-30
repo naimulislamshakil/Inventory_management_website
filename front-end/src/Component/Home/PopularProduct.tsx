@@ -11,6 +11,7 @@ const PopularProduct = () => {
 	useEffect(() => {
 		dispatch(getProduct());
 	}, [dispatch]);
+
 	if (isLoading) {
 		return <Loading />;
 	}
