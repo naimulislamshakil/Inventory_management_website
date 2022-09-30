@@ -9,8 +9,11 @@ export type ProductDetils = {
 				unit: string;
 				imageUrls: string;
 				category: string;
+				price: number;
 				brand: string;
 				_id: string;
+				viewCount: number;
+				status: string;
 			}
 		];
 	};
@@ -28,6 +31,9 @@ export interface PerProduct {
 	unit: string;
 	imageUrls: string;
 	category: string;
+	price: number;
 	brand: string;
 	_id: string;
+	viewCount: number;
+	status: string;
 }
