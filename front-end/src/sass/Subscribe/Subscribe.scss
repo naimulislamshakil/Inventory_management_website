@@ -1,0 +1,25 @@
+.subscribe {
+	background-image: url('../../img/banner-9.webp');
+	background-repeat: no-repeat;
+	background-position: right;
+	height: 500px;
+	.input {
+		width: 35%;
+	}
+	h1,
+	p {
+		transition: transform 0.5s;
+	}
+	h1:hover,
+	p:hover {
+		transform: translateY(-5px);
+	}
+	button,
+	input {
+		transition: transform 0.5s;
+	}
+	button:hover,
+	input:hover {
+		transform: translateY(-5px);
+	}
+}

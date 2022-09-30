@@ -1,0 +1,25 @@
+.subscribe {
+  background-image: url("../../img/banner-9.webp");
+  background-repeat: no-repeat;
+  background-position: right;
+  height: 500px;
+}
+.subscribe .input {
+  width: 35%;
+}
+.subscribe h1,
+.subscribe p {
+  transition: transform 0.5s;
+}
+.subscribe h1:hover,
+.subscribe p:hover {
+  transform: translateY(-5px);
+}
+.subscribe button,
+.subscribe input {
+  transition: transform 0.5s;
+}
+.subscribe button:hover,
+.subscribe input:hover {
+  transform: translateY(-5px);
+}/*# sourceMappingURL=Subscribe.css.map */
