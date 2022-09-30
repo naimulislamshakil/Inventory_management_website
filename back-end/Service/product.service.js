@@ -20,6 +20,10 @@ module.exports.getProductsService = async (query) => {
 
 module.exports.getProductByIdService = async (id) => {
 	const result = await Product.findById(id);
+	const update = await Product.updateOne(
+		{ _id: id },
+		{ $inc: { viewCount: 1 } }
+	);
 	return result;
 };
 

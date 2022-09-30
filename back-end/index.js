@@ -9,8 +9,7 @@ require('dotenv').config();
 // import route file
 const hellowRouter = require('./Route/v1/hellow.route');
 const productRoute = require('./Route/v1/product.route');
-const brandRoute = require('./Route/v1/brand.route');
-const storeRoute = require('./Route/v1/store.route');
+const trandingRoute = require('./Route/v1/tranding.route');
 
 // Add meddilware
 app.use(cors());
@@ -29,8 +28,7 @@ mongoose
 // Show "/" route
 app.use('/', hellowRouter);
 app.use('/api/v1/product', productRoute);
-app.use('/api/v1/brand', brandRoute);
-app.use('/api/v1/store', storeRoute);
+app.use('/api/v1/tranding', trandingRoute);
 
 // Any Route Not Found
 app.use('*', (req, res) => {

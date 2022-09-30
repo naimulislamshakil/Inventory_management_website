@@ -37,11 +37,25 @@ const productSchema = mongoose.Schema(
 		brand: {
 			type: String,
 			required: true,
-			id: {
-				type: ObjectId,
-				ref: 'Brand',
-				required: true,
+		},
+		price: {
+			type: Number,
+			required: true,
+			min: [0, "Product price can't be negative."],
+		},
+
+		status: {
+			type: String,
+			required: true,
+			enum: {
+				values: ['In-Stock', 'Out-Of-Stock'],
+				message: "Status can't be {VALUE}.",
 			},
+			default: 'In-Stock',
+		},
+		viewCount: {
+			type: Number,
+			default: 0,
 		},
 	},
 	{
