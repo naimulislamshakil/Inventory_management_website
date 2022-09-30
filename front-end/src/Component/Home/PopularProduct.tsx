@@ -20,14 +20,13 @@ const PopularProduct = () => {
 	if (error) {
 		errorHandeler(error);
 	}
-	console.log(products);
 	return (
 		<section className="container-fluid mt-3">
 			<div>
 				<h2>Popular Products</h2>
 				<div className="row">
 					{products?.status === 'Successfully' ? (
-						products.data.result.map((product) => (
+						products?.data.map((product) => (
 							<Popular key={product._id} product={product}></Popular>
 						))
 					) : (

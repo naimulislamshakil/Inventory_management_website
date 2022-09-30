@@ -1,4 +1,4 @@
-import { Product, ProductDetils } from '../Type';
+import { Product, PopularProductDetils } from '../Type';
 import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
 import axios from 'axios';
 
@@ -12,8 +12,8 @@ export const getProduct = createAsyncThunk(
 	'product/getProduct',
 	async (data, thunkApi) => {
 		try {
-			const res = await axios.get<ProductDetils>(
-				'http://localhost:5000/api/v1/product'
+			const res = await axios.get<PopularProductDetils>(
+				'http://localhost:5000/api/v1/product/popular'
 			);
 			return res.data;
 		} catch (error: any) {
@@ -41,7 +41,6 @@ export const ProductSlice = createSlice({
 		builder.addCase(
 			getProduct.rejected,
 			(state, action: PayloadAction<any>) => {
-				state.products = null;
 				state.error = action.payload;
 				state.isLoading = false;
 			}

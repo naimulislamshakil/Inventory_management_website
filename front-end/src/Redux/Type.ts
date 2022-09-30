@@ -19,8 +19,26 @@ export type ProductDetils = {
 	};
 };
 
+export type PopularProductDetils = {
+	status: string;
+	data: [
+		{
+			name: string;
+			description: string;
+			unit: string;
+			imageUrls: string;
+			category: string;
+			price: number;
+			brand: string;
+			_id: string;
+			viewCount: number;
+			status: string;
+		}
+	];
+};
+
 export interface Product {
-	products?: ProductDetils | null;
+	products?: PopularProductDetils;
 	error: string | null;
 	isLoading: boolean;
 }

@@ -6,6 +6,8 @@ router
 	.post(productCollaction.postProductCollaction)
 	.get(productCollaction.getProductsCollaction);
 
+router.route('/popular').get(productCollaction.getProductsPopularCollaction);
+
 router
 	.route('/:id')
 	.get(productCollaction.getProductByIdCollaction)

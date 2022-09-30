@@ -42,3 +42,9 @@ module.exports.updateProductByIdService = async (id, data) => {
 		const error = 'You not give me a valid data.';
 	}
 };
+
+module.exports.getProductsPopulerService = async (query) => {
+	const result = await Product.find({}).limit(8);
+
+	return result;
+};

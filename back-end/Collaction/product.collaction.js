@@ -86,3 +86,19 @@ module.exports.updateProductByIdCollaction = async (req, res) => {
 		});
 	}
 };
+
+module.exports.getProductsPopularCollaction = async (req, res) => {
+	try {
+		const result = await productService.getProductsPopulerService();
+		res.status(200).json({
+			status: 'Successfully',
+			data: result,
+		});
+	} catch (error) {
+		res.status(200).json({
+			status: 'Failed',
+			message: 'Product get not successfully.',
+			error: error.message,
+		});
+	}
+};
