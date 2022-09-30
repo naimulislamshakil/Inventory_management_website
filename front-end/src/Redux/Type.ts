@@ -49,6 +49,22 @@ export interface PerProduct {
 	status: string;
 }
 
+export type SingleProductDetils = {
+	status: string;
+	data: {
+		name: string;
+		description: string;
+		unit: string;
+		imageUrls: string;
+		category: string;
+		price: number;
+		brand: string;
+		_id: string;
+		viewCount: number;
+		status: string;
+	};
+};
+
 export interface Product {
 	products?: PopularProductDetils;
 	error: string | null;
@@ -56,7 +72,7 @@ export interface Product {
 }
 
 export interface SingleProduct {
-	products?: PerProduct;
+	products?: SingleProductDetils;
 	error: string | null;
 	isLoading: boolean;
 }

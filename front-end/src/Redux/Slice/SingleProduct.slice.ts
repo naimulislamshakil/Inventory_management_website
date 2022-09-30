@@ -1,4 +1,4 @@
-import { SingleProduct, PerProduct } from '../Type';
+import { SingleProduct, SingleProductDetils } from '../Type';
 import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
 import axios from 'axios';
 
@@ -12,7 +12,7 @@ export const getSingleProduct = createAsyncThunk(
 	'product/getSingleProduct',
 	async ({ id }: any) => {
 		try {
-			const res = await axios.get<PerProduct>(
+			const res = await axios.get<SingleProductDetils>(
 				`http://localhost:5000/api/v1/product/${id}`
 			);
 			return res.data;
