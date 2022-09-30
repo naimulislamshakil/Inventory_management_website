@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { PerProduct } from '../../Redux/Type';
 
 interface Porps {
@@ -7,6 +8,11 @@ interface Porps {
 
 const Popular = ({ product }: Porps) => {
 	const { imageUrls, name, description, price, status, _id, unit } = product;
+	const navigate = useNavigate();
+
+	const productDatils = (id: string) => {
+		navigate(`/${id}`);
+	};
 
 	return (
 		<div
@@ -30,7 +36,9 @@ const Popular = ({ product }: Porps) => {
 				<p className="card-text">{description.slice(0, 250)}</p>
 			</div>
 			<div className="card-footer mx-auto">
-				<button className="btn btn-danger">View Details</button>
+				<button className="btn btn-danger" onClick={() => productDatils(_id)}>
+					View Details
+				</button>
 			</div>
 		</div>
 	);
