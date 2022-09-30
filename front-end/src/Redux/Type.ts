@@ -36,13 +36,6 @@ export type PopularProductDetils = {
 		}
 	];
 };
-
-export interface Product {
-	products?: PopularProductDetils;
-	error: string | null;
-	isLoading: boolean;
-}
-
 export interface PerProduct {
 	name: string;
 	description: string;
@@ -54,4 +47,16 @@ export interface PerProduct {
 	_id: string;
 	viewCount: number;
 	status: string;
+}
+
+export interface Product {
+	products?: PopularProductDetils;
+	error: string | null;
+	isLoading: boolean;
+}
+
+export interface SingleProduct {
+	products?: PerProduct;
+	error: string | null;
+	isLoading: boolean;
 }
