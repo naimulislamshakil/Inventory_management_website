@@ -6,7 +6,7 @@ interface Porps {
 }
 
 const Popular = ({ product }: Porps) => {
-	const { imageUrls, name, description, price, status, _id } = product;
+	const { imageUrls, name, description, price, status, _id, unit } = product;
 
 	return (
 		<div
@@ -23,7 +23,9 @@ const Popular = ({ product }: Porps) => {
 						<h6 className="text-danger">{status}</h6>
 					)}
 					<p>Price: ${price}</p>
+					<p>1 {unit}</p>
 				</div>
+
 				<h5 className="card-title">{name}</h5>
 				<p className="card-text">{description.slice(0, 250)}</p>
 			</div>

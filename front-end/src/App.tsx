@@ -6,6 +6,7 @@ import SecondNavbar from './Component/Navbar/SecondNavbar';
 import './sass/App/App.css';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import AllProduct from './AllProduct/AllProduct';
 
 function App() {
 	return (
@@ -14,6 +15,7 @@ function App() {
 			<SecondNavbar />
 			<Routes>
 				<Route path="/" element={<Home />}></Route>
+				<Route path="/all_product" element={<AllProduct />}></Route>
 			</Routes>
 			<ToastContainer />
 		</div>

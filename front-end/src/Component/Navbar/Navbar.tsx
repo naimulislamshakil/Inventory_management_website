@@ -101,6 +101,11 @@ const Navbar = () => {
 							<ul className="dropdown-menu">{dropdown}</ul>
 						</li>
 						<li className="nav-item">
+							<Link className="nav-link" aria-current="page" to="/all_product">
+								All Product
+							</Link>
+						</li>
+						<li className="nav-item">
 							<Link className="nav-link" aria-current="page" to="/">
 								About Us
 							</Link>
