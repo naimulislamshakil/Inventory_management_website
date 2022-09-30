@@ -5,7 +5,7 @@ const Banner2 = () => {
 	return (
 		<section className="container-fluid">
 			<div className="row">
-				<div className="col-4">
+				<div className="col-12 col-lg-4 mt-2 mt-lg-0">
 					<div className="card banner1 d-flex justify-content-center">
 						<h5>Everyday Fresh &</h5>
 						<h5>Clean with Our</h5>
@@ -28,7 +28,7 @@ const Banner2 = () => {
 						</button>
 					</div>
 				</div>
-				<div className="col-4">
+				<div className="col-12 col-lg-4 mt-2 mt-lg-0">
 					<div className="card banner2 d-flex justify-content-center">
 						<h5>Make your Breakfast</h5>
 						<h5>Healthy and Easy</h5>
@@ -50,7 +50,7 @@ const Banner2 = () => {
 						</button>
 					</div>
 				</div>
-				<div className="col-4">
+				<div className="col-12 col-lg-4 mt-2 mt-lg-0">
 					<div className="card banner3 d-flex justify-content-center">
 						<h5>The best Organic</h5>
 						<h5>Products Online</h5>

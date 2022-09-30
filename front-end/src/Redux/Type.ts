@@ -7,7 +7,7 @@ export type ProductDetils = {
 				name: string;
 				description: string;
 				unit: string;
-				imageUrls: string[];
+				imageUrls: string;
 				category: string;
 				brand: string;
 				_id: string;
@@ -20,4 +20,14 @@ export interface Product {
 	products?: ProductDetils | null;
 	error: string | null;
 	isLoading: boolean;
+}
+
+export interface PerProduct {
+	name: string;
+	description: string;
+	unit: string;
+	imageUrls: string;
+	category: string;
+	brand: string;
+	_id: string;
 }

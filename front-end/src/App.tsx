@@ -4,6 +4,8 @@ import Home from './Component/Home/Home';
 import Navbar from './Component/Navbar/Navbar';
 import SecondNavbar from './Component/Navbar/SecondNavbar';
 import './sass/App/App.css';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
 	return (
@@ -13,6 +15,7 @@ function App() {
 			<Routes>
 				<Route path="/" element={<Home />}></Route>
 			</Routes>
+			<ToastContainer />
 		</div>
 	);
 }
