@@ -76,3 +76,9 @@ export interface SingleProduct {
 	error: string | null;
 	isLoading: boolean;
 }
+
+export interface TrandingProduct {
+	isLoading: boolean;
+	error: string | null;
+	products?: PopularProductDetils;
+}

@@ -1,37 +1,37 @@
-import { PopularProductDetils, Product } from '../Type';
 import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
 import axios from 'axios';
+import { PopularProductDetils, TrandingProduct } from '../Type';
 
 const initialState = {
 	isLoading: false,
 	error: null,
 	products: {},
-} as Product;
+} as TrandingProduct;
 
-export const getTrandingProduct = createAsyncThunk(
-	'product/getSingleProduct',
-	async () => {
+export const getTranding = createAsyncThunk(
+	'product/getTrandingProduct',
+	async (data, thunkApi) => {
 		try {
 			const res = await axios.get<PopularProductDetils>(
 				'http://localhost:5000/api/v1/tranding'
 			);
 			return res.data;
 		} catch (error: any) {
-			console.log(error.message);
+			return thunkApi.rejectWithValue(error.message);
 		}
 	}
 );
 
-export const TrandingProductSlice = createSlice({
-	name: 'product',
+export const TrandingSlice = createSlice({
+	name: 'tranding',
 	initialState,
 	reducers: {},
 	extraReducers(builder) {
-		builder.addCase(getTrandingProduct.pending, (state, action) => {
+		builder.addCase(getTranding.pending, (state, action) => {
 			state.isLoading = true;
 		});
 		builder.addCase(
-			getTrandingProduct.fulfilled,
+			getTranding.fulfilled,
 			(state, action: PayloadAction<any>) => {
 				state.products = action.payload;
 				state.error = null;
@@ -39,7 +39,7 @@ export const TrandingProductSlice = createSlice({
 			}
 		);
 		builder.addCase(
-			getTrandingProduct.rejected,
+			getTranding.rejected,
 			(state, action: PayloadAction<any>) => {
 				state.error = action.payload;
 				state.isLoading = false;
@@ -48,4 +48,4 @@ export const TrandingProductSlice = createSlice({
 	},
 });
 
-export default TrandingProductSlice.reducer;
+export default TrandingSlice.reducer;

@@ -1,24 +1,34 @@
 import React, { useEffect } from 'react';
 import { useAppDispatch, useAppSelector } from '../../Redux/Hooks';
-import { getTrandingProduct } from '../../Redux/Slice/TrandingProduct.slice';
+import { getTranding } from '../../Redux/Slice/TrandingProduct.slice';
+import { errorHandeler } from '../../Utilites/ErrorHandeler';
+import Loading from '../Shared/Loading';
 import Popular from './Popular';
 
 const TrandingProduct = () => {
 	const dispatch = useAppDispatch();
-	const { products, error, isLoading } = useAppSelector(
+	const { error, isLoading, products } = useAppSelector(
 		(state) => state.trandings
 	);
 
 	useEffect(() => {
-		dispatch(getTrandingProduct());
+		dispatch(getTranding());
 	}, [dispatch]);
-	console.log(products);
+
+	if (isLoading) {
+		return <Loading />;
+	}
+
+	if (error) {
+		errorHandeler(error);
+	}
+	console.log(products?.data);
 	return (
 		<section className="container-fluid">
 			<h2>Tranding Products</h2>
 			<div className="row">
 				{products?.status === 'Successfully' ? (
-					products?.data?.map((product) => (
+					products?.data.map((product) => (
 						<Popular key={product._id} product={product}></Popular>
 					))
 				) : (
