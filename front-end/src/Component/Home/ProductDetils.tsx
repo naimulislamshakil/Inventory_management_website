@@ -31,7 +31,7 @@ const ProductDetils = () => {
 		<section className="container-fluid mt-3">
 			<div className="row">
 				<div className="col-md-4 col-12 ">
-					<img className="w-100" src={products?.data?.imageUrls[0]} alt="" />
+					<img className="w-100" src={products?.data?.imageUrls} alt="" />
 				</div>
 				<div className="col-md-8 col-12 bg-white p-5">
 					<h1>{products?.data?.name}</h1>

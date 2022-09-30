@@ -19,7 +19,7 @@ const Popular = ({ product }: Porps) => {
 			className="card border-primary mb-3 col-lg-3 col-12 mx-auto"
 			style={{ maxWidth: '20rem' }}
 		>
-			<img className="card-img-top img-fluid" src={imageUrls[0]} alt="" />
+			<img className="card-img-top img-fluid" src={imageUrls} alt="" />
 
 			<div className="card-body">
 				<div className="d-flex justify-content-between">

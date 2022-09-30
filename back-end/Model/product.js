@@ -24,12 +24,10 @@ const productSchema = mongoose.Schema(
 				message: "Unit value can't be {VALUE}, must be kg/litter/pcs/bag",
 			},
 		},
-		imageUrls: [
-			{
-				type: String,
-				required: true,
-			},
-		],
+		imageUrls: {
+			type: String,
+			required: true,
+		},
 		category: {
 			type: String,
 			required: true,
