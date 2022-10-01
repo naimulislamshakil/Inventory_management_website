@@ -11,7 +11,7 @@ const Policy = () => {
 		<section className="container-fluid mt-3 p-3">
 			<div className="row d-flex justify-content-center">
 				<div
-					className="card col-12 me-2 mx-md-auto col-md-2 mt-2"
+					className="card col-md-12 me-2 mx-md-auto col-lg-2 mt-2"
 					style={{ maxWidth: '15rem' }}
 				>
 					<div className="row d-flex align-items-center">
@@ -28,7 +28,7 @@ const Policy = () => {
 					</div>
 				</div>
 				<div
-					className="card col-12 me-2 mx-md-auto col-md-2 mt-2"
+					className="card col-md-12 me-2 mx-md-auto col-lg-2 mt-2"
 					style={{ maxWidth: '15rem' }}
 				>
 					<div className="row d-flex align-items-center">
@@ -44,7 +44,7 @@ const Policy = () => {
 					</div>
 				</div>
 				<div
-					className="card col-12 me-2 mx-md-auto col-md-2 mt-2"
+					className="card col-md-12 me-2 mx-md-auto col-lg-2 mt-2"
 					style={{ maxWidth: '15rem' }}
 				>
 					<div className="row d-flex align-items-center">
@@ -61,7 +61,7 @@ const Policy = () => {
 					</div>
 				</div>
 				<div
-					className="card col-12 me-2 mx-md-auto col-md-2 mt-2"
+					className="card col-md-12 me-2 mx-md-auto col-lg-2 mt-2"
 					style={{ maxWidth: '15rem' }}
 				>
 					<div className="row d-flex align-items-center">
@@ -78,7 +78,7 @@ const Policy = () => {
 					</div>
 				</div>
 				<div
-					className="card col-12 mx-md-auto col-md-2 mt-2"
+					className="card col-md-12 mx-md-auto col-lg-2 mt-2"
 					style={{ maxWidth: '15rem' }}
 				>
 					<div className="row d-flex align-items-center">
