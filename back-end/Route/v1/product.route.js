@@ -7,6 +7,7 @@ router
 	.get(productCollaction.getProductsCollaction);
 
 router.route('/popular').get(productCollaction.getProductsPopularCollaction);
+router.route('/filter').get(productCollaction.getProductsByFilterCollaction);
 
 router
 	.route('/:id')

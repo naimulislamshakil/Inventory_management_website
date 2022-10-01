@@ -18,6 +18,19 @@ module.exports.getProductsService = async (query) => {
 	return { result, pageCount };
 };
 
+module.exports.getProductsByFilterService = async (query) => {
+	const { fields, skip, limit, sort, filter } = query;
+
+	const result = await Product.find({ catagory: filter })
+		.select(fields)
+		.skip(skip)
+		.limit(limit)
+		.sort(sort);
+	const count = await Product.find({}).count();
+	const pageCount = Math.ceil(count / limit);
+	return { result, pageCount };
+};
+
 module.exports.getProductByIdService = async (id) => {
 	const result = await Product.findById(id);
 	const update = await Product.updateOne(

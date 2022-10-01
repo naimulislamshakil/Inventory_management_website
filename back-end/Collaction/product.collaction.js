@@ -52,6 +52,46 @@ module.exports.getProductsCollaction = async (req, res) => {
 	}
 };
 
+module.exports.getProductsByFilterCollaction = async (req, res) => {
+	try {
+		const { fields, limit = 5, page = 1, sort, filter } = req.query;
+		const query = {};
+		console.log(filter);
+
+		if (filter) {
+			query.filter = filter;
+		}
+
+		if (fields) {
+			const split = fields.split(',').join(' ');
+			query.fields = split;
+		}
+
+		if (page) {
+			const skip = (page - 1) * parseInt(limit);
+			query.skip = skip;
+			query.limit = parseInt(limit);
+		}
+
+		if (sort) {
+			const split = fields.split(',').join(' ');
+			query.sort = split;
+		}
+
+		const result = await productService.getProductsByFilterService(query);
+		res.status(200).json({
+			status: 'Successfully',
+			data: result,
+		});
+	} catch (error) {
+		res.status(200).json({
+			status: 'Failed',
+			message: 'Product get not successfully.',
+			error: error.message,
+		});
+	}
+};
+
 module.exports.getProductByIdCollaction = async (req, res) => {
 	try {
 		const { id } = req.params;
