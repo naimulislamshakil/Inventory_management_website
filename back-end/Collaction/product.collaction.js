@@ -19,23 +19,13 @@ module.exports.postProductCollaction = async (req, res) => {
 
 module.exports.getProductsCollaction = async (req, res) => {
 	try {
-		const { fields, limit = 5, page = 1, sort } = req.query;
+		const { limit = 5, page = 1, sort } = req.query;
 		const query = {};
-
-		if (fields) {
-			const split = fields.split(',').join(' ');
-			query.fields = split;
-		}
 
 		if (page) {
 			const skip = (page - 1) * parseInt(limit);
 			query.skip = skip;
 			query.limit = parseInt(limit);
-		}
-
-		if (sort) {
-			const split = fields.split(',').join(' ');
-			query.sort = split;
 		}
 
 		const result = await productService.getProductsService(query);
@@ -54,17 +44,12 @@ module.exports.getProductsCollaction = async (req, res) => {
 
 module.exports.getProductsByFilterCollaction = async (req, res) => {
 	try {
-		const { fields, limit = 5, page = 1, sort, filter } = req.query;
+		const { limit = 5, page = 1, sort, filter } = req.query;
 		const query = {};
 		console.log(filter);
 
 		if (filter) {
 			query.filter = filter;
-		}
-
-		if (fields) {
-			const split = fields.split(',').join(' ');
-			query.fields = split;
 		}
 
 		if (page) {
@@ -74,7 +59,7 @@ module.exports.getProductsByFilterCollaction = async (req, res) => {
 		}
 
 		if (sort) {
-			const split = fields.split(',').join(' ');
+			sort;
 			query.sort = split;
 		}
 

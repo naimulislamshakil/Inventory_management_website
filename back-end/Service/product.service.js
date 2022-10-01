@@ -6,23 +6,19 @@ module.exports.postProductService = async (data) => {
 };
 
 module.exports.getProductsService = async (query) => {
-	const { fields, skip, limit, sort } = query;
+	const { skip, limit } = query;
 
-	const result = await Product.find({})
-		.select(fields)
-		.skip(skip)
-		.limit(limit)
-		.sort(sort);
+	const result = await Product.find({}).skip(skip).limit(limit).sort('-price');
 	const count = await Product.find({}).count();
 	const pageCount = Math.ceil(count / limit);
 	return { result, pageCount };
 };
 
 module.exports.getProductsByFilterService = async (query) => {
-	const { fields, skip, limit, sort, filter } = query;
+	const { skip, limit, sort, filter } = query;
+	console.log(filter);
 
-	const result = await Product.find({ catagory: filter })
-		.select(fields)
+	const result = await Product.find({ category: filter })
 		.skip(skip)
 		.limit(limit)
 		.sort(sort);

@@ -7,7 +7,8 @@ interface Porps {
 }
 
 const Popular = ({ product }: Porps) => {
-	const { imageUrls, name, description, price, status, _id, unit } = product;
+	const { imageUrls, name, description, price, status, _id, unit, category } =
+		product;
 	const navigate = useNavigate();
 
 	const productDatils = (id: string) => {
@@ -33,6 +34,7 @@ const Popular = ({ product }: Porps) => {
 				</div>
 
 				<h5 className="card-title">{name}</h5>
+				<p>Category: {category}</p>
 				<p className="card-text">{description.slice(0, 250)}</p>
 			</div>
 			<div className="card-footer mx-auto">

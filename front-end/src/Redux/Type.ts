@@ -82,3 +82,9 @@ export interface TrandingProduct {
 	error: string | null;
 	products?: PopularProductDetils;
 }
+
+export interface FilterProduct {
+	isLoading: boolean;
+	error: string | null;
+	products?: ProductDetils;
+}
