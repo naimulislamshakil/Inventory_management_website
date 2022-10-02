@@ -136,7 +136,11 @@ const Navbar = () => {
 						{user ? (
 							<>
 								<li className="nav-item">
-									<Link className="nav-link" aria-current="page" to="/login">
+									<Link
+										className="nav-link"
+										aria-current="page"
+										to="/dashboard"
+									>
 										Dashboard
 									</Link>
 								</li>

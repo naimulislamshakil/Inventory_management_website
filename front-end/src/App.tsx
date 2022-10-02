@@ -11,6 +11,7 @@ import ProductDetils from './Component/Home/ProductDetils';
 import Footer from './Component/Footer/Footer';
 import Login from './Component/Login/Login';
 import Register from './Component/Register/Register';
+import Dashboard from './Component/Dashboard/Dashboard';
 
 function App() {
 	return (
@@ -23,6 +24,7 @@ function App() {
 				<Route path="/:id" element={<ProductDetils />}></Route>
 				<Route path="/login" element={<Login />}></Route>
 				<Route path="/register" element={<Register />}></Route>
+				<Route path="/dashboard" element={<Dashboard />}></Route>
 			</Routes>
 			<Footer />
 			<ToastContainer />
