@@ -4,14 +4,20 @@ import {
 	useSignInWithFacebook,
 	useSignInWithGithub,
 } from 'react-firebase-hooks/auth';
+import { useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.config';
 import { errorHandeler } from '../../Utilites/ErrorHandeler';
 import Loading from '../Shared/Loading';
 
 const SocialMedia = () => {
-	const [signInWithGoogle, loading, error] = useSignInWithGoogle(auth);
-	const [signInWithFacebook, loading1, error1] = useSignInWithFacebook(auth);
-	const [signInWithGithub, loading2, error2] = useSignInWithGithub(auth);
+	const navigate = useNavigate();
+	const location = useLocation();
+	const from = location.state?.from?.pathname || '/';
+
+	const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
+	const [signInWithFacebook, user1, loading1, error1] =
+		useSignInWithFacebook(auth);
+	const [signInWithGithub, user2, loading2, error2] = useSignInWithGithub(auth);
 
 	if (loading || loading1 || loading2) {
 		return <Loading />;
@@ -19,6 +25,9 @@ const SocialMedia = () => {
 
 	if (error || error1 || error2) {
 		errorHandeler(error);
+	}
+	if (user || user1 || user2) {
+		navigate(from, { replace: true });
 	}
 	return (
 		<div className="text-center">

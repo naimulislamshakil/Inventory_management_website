@@ -3,9 +3,11 @@ import Popular from '../Component/Home/Popular';
 import Loading from '../Component/Shared/Loading';
 import { useAppDispatch, useAppSelector } from '../Redux/Hooks';
 import { getAllProduct } from '../Redux/Slice/Filter.slice';
+import { dinamicTitle } from '../Utilites/DainamicTitle';
 import { errorHandeler } from '../Utilites/ErrorHandeler';
 
 const AllProduct = () => {
+	dinamicTitle('All Product');
 	const dispatch = useAppDispatch();
 	const { products, error, isLoading } = useAppSelector(
 		(state) => state.filters
