@@ -6,6 +6,7 @@ import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import Loading from '../Shared/Loading';
 import { errorHandeler } from '../../Utilites/ErrorHandeler';
 import { useLocation, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const Login = () => {
 	const [createUserWithEmailAndPassword, user, loading, error] =
@@ -91,12 +92,21 @@ const Login = () => {
 				{/* <!-- Submit button --> */}
 				<button
 					type="button"
-					className="btn btn-primary btn-block mb-4"
-					onClick={onSubmit}
+					className="btn w-50 mx-auto fw-bold text-body"
+					style={{
+						background: 'rgb(138, 230, 211)',
+					}}
 				>
 					Login
 				</button>
-				Sign in
+
+				<p className="text-center text-muted mt-5 mb-3">
+					Have have not any account?{' '}
+					<Link to="/register" className="fw-bold text-body">
+						<u>Register here</u>
+					</Link>
+				</p>
+
 				{/* <!-- Register buttons --> */}
 				<SocialMedia />
 			</div>

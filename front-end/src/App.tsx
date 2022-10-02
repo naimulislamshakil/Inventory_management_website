@@ -10,6 +10,7 @@ import AllProduct from './AllProduct/AllProduct';
 import ProductDetils from './Component/Home/ProductDetils';
 import Footer from './Component/Footer/Footer';
 import Login from './Component/Login/Login';
+import Register from './Component/Register/Register';
 
 function App() {
 	return (
@@ -21,6 +22,7 @@ function App() {
 				<Route path="/all_product" element={<AllProduct />}></Route>
 				<Route path="/:id" element={<ProductDetils />}></Route>
 				<Route path="/login" element={<Login />}></Route>
+				<Route path="/register" element={<Register />}></Route>
 			</Routes>
 			<Footer />
 			<ToastContainer />

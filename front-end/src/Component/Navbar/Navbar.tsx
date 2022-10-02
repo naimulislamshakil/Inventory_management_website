@@ -1,7 +1,25 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import auth from '../../firebase.config';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import Loading from '../Shared/Loading';
+import { errorHandeler } from '../../Utilites/ErrorHandeler';
+import { signOut } from '@firebase/auth';
 
 const Navbar = () => {
+	const [user, loading, error] = useAuthState(auth);
+
+	if (loading) {
+		return <Loading />;
+	}
+	if (error) {
+		errorHandeler(error);
+	}
+
+	const logout = () => {
+		signOut(auth);
+	};
+
 	const dropdown = (
 		<>
 			<li>
@@ -115,16 +133,37 @@ const Navbar = () => {
 								Contact Us
 							</Link>
 						</li>
-						<li className="nav-item">
-							<Link className="nav-link" aria-current="page" to="/login">
-								Login
-							</Link>
-						</li>
-						<li className="nav-item">
-							<Link className="nav-link" aria-current="page" to="/">
-								Register
-							</Link>
-						</li>
+						{user ? (
+							<>
+								<li className="nav-item">
+									<Link className="nav-link" aria-current="page" to="/login">
+										Dashboard
+									</Link>
+								</li>
+								<li className="nav-item">
+									<button
+										onClick={logout}
+										className="nav-link link btn"
+										aria-current="page"
+									>
+										LogOut
+									</button>
+								</li>
+							</>
+						) : (
+							<>
+								<li className="nav-item">
+									<Link className="nav-link" aria-current="page" to="/login">
+										Login
+									</Link>
+								</li>
+								<li className="nav-item">
+									<Link className="nav-link" aria-current="page" to="/register">
+										Register
+									</Link>
+								</li>
+							</>
+						)}
 					</ul>
 					<form className="d-flex" role="search">
 						<input
