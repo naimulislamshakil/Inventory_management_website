@@ -13,7 +13,7 @@ export const getProduct = createAsyncThunk(
 	async (data, thunkApi) => {
 		try {
 			const res = await axios.get<PopularProductDetils>(
-				'http://localhost:5000/api/v1/product/popular'
+				'https://frozen-gorge-25425.herokuapp.com/api/v1/product/popular'
 			);
 			return res.data;
 		} catch (error: any) {
