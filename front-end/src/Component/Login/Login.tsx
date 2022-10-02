@@ -2,15 +2,15 @@ import React, { useState } from 'react';
 import auth from '../../firebase.config';
 import { dinamicTitle } from '../../Utilites/DainamicTitle';
 import SocialMedia from '../SocialMedia/SocialMedia';
-import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import Loading from '../Shared/Loading';
 import { errorHandeler } from '../../Utilites/ErrorHandeler';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 
 const Login = () => {
-	const [createUserWithEmailAndPassword, user, loading, error] =
-		useCreateUserWithEmailAndPassword(auth);
+	const [signInWithEmailAndPassword, user, loading, error] =
+		useSignInWithEmailAndPassword(auth);
 
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
@@ -22,8 +22,7 @@ const Login = () => {
 
 	dinamicTitle('Login Page');
 	const onSubmit = () => {
-		createUserWithEmailAndPassword(email, password);
-		console.log(email, password);
+		signInWithEmailAndPassword(email, password);
 	};
 
 	if (loading) {
@@ -35,10 +34,10 @@ const Login = () => {
 	if (user?.user) {
 		navigate(from, { replace: true });
 	}
-	console.log(user);
 	return (
 		<section className="container-fluid mt-3">
-			<div className="w-50 mx-auto card p-4" onSubmit={onSubmit}>
+			<div className="w-50 mx-auto card p-4">
+				<h2 className="text-uppercase text-center mb-5">Log In</h2>
 				{/* <!-- Email input --> */}
 				<div className="form-outline mb-4 mt-4">
 					<input
@@ -91,6 +90,7 @@ const Login = () => {
 				</div>
 				{/* <!-- Submit button --> */}
 				<button
+					onClick={onSubmit}
 					type="button"
 					className="btn w-50 mx-auto fw-bold text-body"
 					style={{

@@ -1,8 +1,40 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState } from 'react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import auth from '../../firebase.config';
 import SocialMedia from '../SocialMedia/SocialMedia';
+import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import Loading from '../Shared/Loading';
+import { errorHandeler } from '../../Utilites/ErrorHandeler';
 
 const Register = () => {
+	const [createUserWithEmailAndPassword, user, loading, error] =
+		useCreateUserWithEmailAndPassword(auth);
+
+	const [email, setEmail] = useState('');
+	const [password, setPassword] = useState('');
+	const [rePassword, setRePassword] = useState('');
+
+	const navigate = useNavigate();
+	const location = useLocation();
+
+	const from = location.state?.from?.pathname || '/';
+
+	const onsubmit = () => {
+		if (password === rePassword) {
+			createUserWithEmailAndPassword(email, password);
+		}
+	};
+
+	if (loading) {
+		return <Loading />;
+	}
+	if (error) {
+		errorHandeler(error);
+	}
+	if (user?.user) {
+		navigate(from, { replace: true });
+	}
+
 	return (
 		<section className="container-fluid mt-3">
 			<div className="mask d-flex align-items-center h-100 gradient-custom-3">
@@ -32,6 +64,8 @@ const Register = () => {
 												type="email"
 												id="form3Example3cg"
 												className="form-control form-control-lg"
+												required
+												onBlur={(e) => setEmail(e.target.value)}
 											/>
 											<label className="form-label" htmlFor="form3Example3cg">
 												Your Email
@@ -43,6 +77,8 @@ const Register = () => {
 												type="password"
 												id="form3Example4cg"
 												className="form-control form-control-lg"
+												required
+												onBlur={(e) => setPassword(e.target.value)}
 											/>
 											<label className="form-label" htmlFor="form3Example4cg">
 												Password
@@ -54,6 +90,8 @@ const Register = () => {
 												type="password"
 												id="form3Example4cdg"
 												className="form-control form-control-lg"
+												required
+												onBlur={(e) => setRePassword(e.target.value)}
 											/>
 											<label className="form-label" htmlFor="form3Example4cdg">
 												Repeat your password
@@ -80,6 +118,7 @@ const Register = () => {
 
 										<div className="d-flex justify-content-center">
 											<button
+												onClick={onsubmit}
 												type="button"
 												className="btn w-50 fw-bold text-body"
 												style={{
