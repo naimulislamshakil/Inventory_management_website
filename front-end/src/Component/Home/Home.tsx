@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { dinamicTitle } from '../../Utilites/DainamicTitle';
 import Banner from '../Banner/Banner';
 import Banner2 from '../Banner/Banner2';
@@ -9,7 +9,10 @@ import Subscribe from './Subscribe';
 import TrandingProduct from './TrandingProduct';
 
 const Home = () => {
+	// const [user, setUser] = useState({});
 	dinamicTitle('(Home Page)');
+	useEffect(() => {}, []);
+	// console.log(user);
 	return (
 		<section>
 			<Banner />

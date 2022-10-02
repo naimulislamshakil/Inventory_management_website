@@ -22,7 +22,6 @@ const TrandingProduct = () => {
 	if (error) {
 		errorHandeler(error);
 	}
-	console.log(products?.data);
 	return (
 		<section className="container-fluid">
 			<h2>Tranding Products</h2>
