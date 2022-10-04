@@ -12,6 +12,8 @@ import Footer from './Component/Footer/Footer';
 import Login from './Component/Login/Login';
 import Register from './Component/Register/Register';
 import Dashboard from './Component/Dashboard/Dashboard';
+import BuyNow from './Component/BuyNow/BuyNow';
+import RequireAuth from './Component/RequireAuth/RequireAuth';
 
 function App() {
 	return (
@@ -22,6 +24,14 @@ function App() {
 				<Route path="/" element={<Home />}></Route>
 				<Route path="/all_product" element={<AllProduct />}></Route>
 				<Route path="/:id" element={<ProductDetils />}></Route>
+				<Route
+					path="/payment/:id"
+					element={
+						<RequireAuth>
+							<BuyNow />
+						</RequireAuth>
+					}
+				></Route>
 				<Route path="/login" element={<Login />}></Route>
 				<Route path="/register" element={<Register />}></Route>
 				<Route path="/dashboard" element={<Dashboard />}></Route>

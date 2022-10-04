@@ -1,35 +1,30 @@
-import React, { useEffect } from 'react';
-import { useParams } from 'react-router-dom';
-import { useAppDispatch, useAppSelector } from '../../Redux/Hooks';
-import { getSingleProduct } from '../../Redux/Slice/SingleProduct.slice';
-import { dinamicTitle } from '../../Utilites/DainamicTitle';
-import { errorHandeler } from '../../Utilites/ErrorHandeler';
-import Loading from '../Shared/Loading';
+// import React, { useEffect } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
+// import { dinamicTitle } from '../../Utilites/DainamicTitle';
+// import { errorHandeler } from '../../Utilites/ErrorHandeler';
+// import Loading from '../Shared/Loading';
 
 const ProductDetils = () => {
 	const { id } = useParams();
-	const dispatch = useAppDispatch();
-	const { products, error, isLoading } = useAppSelector(
-		(state) => state.singleProsucts
-	);
+	const navigator = useNavigate();
+	// const dispatch = useAppDispatch();
+	// const { products, error, isLoading } = useAppSelector(
+	// 	(state) => state.singleProsucts
+	// );
 
-	useEffect(() => {
-		dispatch(getSingleProduct({ id }));
-	}, [id, dispatch]);
+	// useEffect(() => {
+	// 	dispatch(getSingleProduct({ id }));
+	// }, [id, dispatch]);
 
-	if (isLoading) {
-		return <Loading />;
-	}
+	// const buyNow = (id: any) => {
+	// 	navigator(`/payment/${id}`);
+	// };
 
-	if (error) {
-		errorHandeler(error);
-	}
-
-	dinamicTitle(`${products?.data?.name}`);
+	// dinamicTitle(`${products?.data?.name}`);
 
 	return (
 		<section className="container-fluid mt-3">
-			<div className="row">
+			{/* <div className="row">
 				<div className="col-md-4 col-12 ">
 					<img className="w-100" src={products?.data?.imageUrls} alt="" />
 				</div>
@@ -50,7 +45,10 @@ const ProductDetils = () => {
 						{products?.data?.description}
 					</p>
 					<div className="d-lg-flex d-block  justify-content-between">
-						<button className="btn btn-outline-danger btn-lg ">
+						<button
+							className="btn btn-outline-danger btn-lg "
+							onClick={() => buyNow(products?.data?._id)}
+						>
 							Buy Now
 							<svg
 								xmlns="http://www.w3.org/2000/svg"
@@ -91,7 +89,7 @@ const ProductDetils = () => {
 						</button>
 					</div>
 				</div>
-			</div>
+			</div> */}
 		</section>
 	);
 };
