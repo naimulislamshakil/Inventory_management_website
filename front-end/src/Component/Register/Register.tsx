@@ -40,17 +40,7 @@ const Register = () => {
 		<section className="container-fluid mt-3">
 			<form onSubmit={onsubmit} className="w-75 mx-auto card p-5">
 				<h2 className="text-center">Create A User</h2>
-				<div className="mb-3">
-					<label htmlFor="exampleInputEmail1" className="form-label">
-						Name
-					</label>
-					<input
-						type="text"
-						className="form-control"
-						id="exampleInputEmail1"
-						aria-describedby="emailHelp"
-					/>
-				</div>
+
 				<div className="mb-3">
 					<label htmlFor="exampleInputEmail1" className="form-label">
 						Email address
