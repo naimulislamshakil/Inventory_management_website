@@ -1,33 +1,34 @@
-// import React, { useEffect } from 'react';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
-// import auth from '../../firebase.config';
-// import { errorHandeler } from '../../Utilites/ErrorHandeler';
-// import Loading from '../Shared/Loading';
-// import { useAuthState } from 'react-firebase-hooks/auth';
-// import { dinamicTitle } from '../../Utilites/DainamicTitle';
+import { RootStore } from '../../Redux/Store';
+import auth from '../../firebase.config';
+import { errorHandeler } from '../../Utilites/ErrorHandeler';
+import Loading from '../Shared/Loading';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import { dinamicTitle } from '../../Utilites/DainamicTitle';
+import { GetSingleProduct } from '../../Redux/Action/Action/SingleProductAction';
 
 const BuyNow = () => {
 	const { id } = useParams();
 
-	// const dispatch = useAppDispatch();
-	// const { products, error, isLoading } = useAppSelector(
-	// 	(state) => state.singleProsucts
-	// );
+	const dispatch = useDispatch();
+	const { Product } = useSelector((state: RootStore) => state.single);
 
-	// const [user, loading, error1] = useAuthState(auth);
+	const [user, loading, error1] = useAuthState(auth);
 
-	// useEffect(() => {
-	// 	dispatch(getSingleProduct({ id }));
-	// }, [dispatch, id]);
+	useEffect(() => {
+		dispatch(GetSingleProduct(id));
+	}, [dispatch, id]);
 
-	// if (isLoading || loading) {
-	// 	return <Loading />;
-	// }
-	// if (error || error1) {
-	// 	errorHandeler(error);
-	// }
-	// console.log(user);
-	// dinamicTitle(`Chackout For ${products?.data?.name}`);
+	if (loading) {
+		return <Loading />;
+	}
+	if (error1) {
+		errorHandeler(error1.message);
+	}
+	console.log(user);
+	dinamicTitle(`Chackout For ${Product?.data.name}`);
 
 	return (
 		<section className="container-fluid mt-3 p-5">

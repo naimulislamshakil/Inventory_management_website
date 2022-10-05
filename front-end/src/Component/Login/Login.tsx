@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { FormEvent, useState } from 'react';
 import auth from '../../firebase.config';
 import { dinamicTitle } from '../../Utilites/DainamicTitle';
 import SocialMedia from '../SocialMedia/SocialMedia';
@@ -21,7 +21,7 @@ const Login = () => {
 	const from = location.state?.from?.pathname || '/';
 
 	dinamicTitle('Login Page');
-	const onSubmit = () => {
+	const onSubmit = (e: FormEvent<HTMLFormElement>) => {
 		signInWithEmailAndPassword(email, password);
 	};
 
@@ -36,80 +36,47 @@ const Login = () => {
 	}
 	return (
 		<section className="container-fluid mt-3">
-			<div className="w-50 mx-auto card p-4">
-				<h2 className="text-uppercase text-center mb-5">Log In</h2>
-				{/* <!-- Email input --> */}
-				<div className="form-outline mb-4 mt-4">
-					<input
-						type="email"
-						id="form2Example1"
-						className="form-control"
-						onBlur={(e) => setEmail(e.target.value)}
-						required
-					/>
-					<label className="form-label" htmlFor="form2Example1">
+			<form className="w-75 mx-auto card p-5">
+				<h2 className="text-center">Log In</h2>
+				<div className="mb-3">
+					<label htmlFor="exampleInputEmail1" className="form-label">
 						Email address
 					</label>
-				</div>
-				{/* <!-- Password input --> */}
-				<div className="form-outline mb-4">
 					<input
-						type="password"
-						id="form2Example2"
+						type="email"
 						className="form-control"
-						onBlur={(e) => setPassword(e.target.value)}
-						required
+						id="exampleInputEmail1"
+						aria-describedby="emailHelp"
 					/>
-					<label className="form-label" htmlFor="form2Example2">
+					<div id="emailHelp" className="form-text">
+						We'll never share your email with anyone else.
+					</div>
+				</div>
+				<div className="mb-3">
+					<label htmlFor="exampleInputPassword1" className="form-label">
 						Password
 					</label>
+					<input
+						type="password"
+						className="form-control"
+						id="exampleInputPassword1"
+					/>
 				</div>
-				{/* <!-- 2 column grid layout for inline styling --> */}
-				<div className="row mb-4">
-					<div className="col d-flex justify-content-center">
-						{/* <!-- Checkbox --> */}
-						<div className="form-check">
-							<input
-								className="form-check-input"
-								type="checkbox"
-								value=""
-								id="form2Example31"
-								checked
-							/>
-							<label className="form-check-label" htmlFor="form2Example31">
-								{' '}
-								Remember me{' '}
-							</label>
-						</div>
-					</div>
-
-					<div className="col">
-						{/* <!-- Simple link --> */}
-						<a href="#!">Forgot password?</a>
-					</div>
-				</div>
-				{/* <!-- Submit button --> */}
-				<button
-					onClick={onSubmit}
-					type="button"
-					className="btn w-50 mx-auto fw-bold text-body"
-					style={{
-						background: 'rgb(138, 230, 211)',
-					}}
-				>
-					Login
-				</button>
-
-				<p className="text-center text-muted mt-5 mb-3">
-					Have have not any account?{' '}
-					<Link to="/register" className="fw-bold text-body">
-						<u>Register here</u>
+				<div className="mb-3 d-flex justify-content-center">
+					<h6>You Are Not A User!</h6>
+					<Link to="/register" className="nav-link">
+						<h6 className="ms-2 text-decoration-underline text-primary">
+							Please LogIn
+						</h6>
 					</Link>
-				</p>
-
-				{/* <!-- Register buttons --> */}
-				<SocialMedia />
-			</div>
+				</div>
+				<input
+					type="submit"
+					value="Login"
+					className="btn w-25 fw-bold mx-auto"
+					style={{ backgroundColor: 'turquoise', color: 'white' }}
+				/>
+			</form>
 		</section>
 	);
 };
