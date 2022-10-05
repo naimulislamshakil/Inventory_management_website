@@ -1,44 +1,34 @@
-// import React, { useEffect } from 'react';
-// import Popular from '../Component/Home/Popular';
-// import Loading from '../Component/Shared/Loading';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import Popular from '../Component/Home/Popular';
+import { GetAllProduct } from '../Redux/Action/Action/AllProductAction';
+import { RootStore } from '../Redux/Store';
 import { dinamicTitle } from '../Utilites/DainamicTitle';
-// import { errorHandeler } from '../Utilites/ErrorHandeler';
 
 const AllProduct = () => {
 	dinamicTitle('All Product');
-	// const dispatch = useAppDispatch();
-	// const { products, error, isLoading } = useAppSelector(
-	// 	(state) => state.filters
-	// );
-
+	const dispatch = useDispatch();
+	const { Product } = useSelector((state: RootStore) => state.allProducts);
+	console.log(Product);
 	// const getPrice = 'price';
 
-	// useEffect(() => {
-	// 	dispatch(getAllProduct());
-	// }, [dispatch]);
-
-	// if (error) {
-	// 	errorHandeler(error);
-	// }
-
-	// if (isLoading) {
-	// 	return <Loading />;
-	// }
-	// console.log(products);
+	useEffect(() => {
+		dispatch(GetAllProduct());
+	}, [dispatch]);
 
 	return (
 		<section className="container-fluid mt-3">
 			<h2>All Product</h2>
 			<div className="row">
-				{/* {products?.status === 'Successfully' ? (
-					products.data.result.map((product) => (
+				{Product?.status === 'Successfully' ? (
+					Product.data.result.map((product) => (
 						<Popular key={product._id} product={product}></Popular>
 					))
 				) : (
 					<div>
 						<h1>No Product Now For Sell.</h1>
 					</div>
-				)} */}
+				)}
 			</div>
 		</section>
 	);
