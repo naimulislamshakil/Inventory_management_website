@@ -4,7 +4,7 @@ import {
 	PRODUCT_LOADING,
 	PRODUCT_FAIL,
 	PRODUCT_SUCCESS,
-} from '../Action/ProductActionType';
+} from '../../Action/ActionType/ProductActionType';
 
 interface DefaultState {
 	loading: boolean;

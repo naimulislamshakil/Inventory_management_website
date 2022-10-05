@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { PerProduct } from '../../Redux/Action/ProductActionType';
+import { PerProduct } from '../../Redux/Action/ActionType/ProductActionType';
 
 interface Porps {
 	product: PerProduct;

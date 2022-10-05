@@ -1,53 +1,54 @@
-// import React, { useEffect } from 'react';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
-// import { dinamicTitle } from '../../Utilites/DainamicTitle';
-// import { errorHandeler } from '../../Utilites/ErrorHandeler';
-// import Loading from '../Shared/Loading';
+import { GetSingleProduct } from '../../Redux/Action/Action/SingleProductAction';
+import { RootStore } from '../../Redux/Store';
+import { dinamicTitle } from '../../Utilites/DainamicTitle';
 
 const ProductDetils = () => {
 	const { id } = useParams();
 	const navigator = useNavigate();
-	// const dispatch = useAppDispatch();
-	// const { products, error, isLoading } = useAppSelector(
-	// 	(state) => state.singleProsucts
-	// );
+	const dispatch = useDispatch();
+	const { Product } = useSelector((state: RootStore) => state.single);
 
-	// useEffect(() => {
-	// 	dispatch(getSingleProduct({ id }));
-	// }, [id, dispatch]);
+	useEffect(() => {
+		dispatch(GetSingleProduct(id));
+	}, [id, dispatch]);
 
-	// const buyNow = (id: any) => {
-	// 	navigator(`/payment/${id}`);
-	// };
+	console.log(Product);
 
-	// dinamicTitle(`${products?.data?.name}`);
+	const buyNow = (id: any) => {
+		navigator(`/payment/${id}`);
+	};
+
+	dinamicTitle(`${Product?.data.name}`);
 
 	return (
 		<section className="container-fluid mt-3">
-			{/* <div className="row">
+			<div className="row">
 				<div className="col-md-4 col-12 ">
-					<img className="w-100" src={products?.data?.imageUrls} alt="" />
+					<img className="w-100" src={Product?.data?.imageUrls} alt="" />
 				</div>
 				<div className="col-md-8 col-12 bg-white p-5">
-					<h1>{products?.data?.name}</h1>
-					<p>Category: {products?.data?.category}</p>
+					<h1>{Product?.data?.name}</h1>
+					<p>Category: {Product?.data?.category}</p>
 					<div className="d-flex justify-content-between">
-						{products?.data?.status === 'In-Stock' ? (
-							<h6 className="text-warning">{products?.data?.status}</h6>
+						{Product?.data?.status === 'In-Stock' ? (
+							<h6 className="text-warning">{Product?.data?.status}</h6>
 						) : (
-							<h6 className="text-danger">{products?.data?.status}</h6>
+							<h6 className="text-danger">{Product?.data?.status}</h6>
 						)}
-						<p>Price: ${products?.data?.price}</p>
-						<p>1 {products?.data?.unit}</p>
+						<p>Price: ${Product?.data?.price}</p>
+						<p>1 {Product?.data?.unit}</p>
 					</div>
 					<p>
 						<span className="fw-bolder ">Product Description:</span>{' '}
-						{products?.data?.description}
+						{Product?.data?.description}
 					</p>
 					<div className="d-lg-flex d-block  justify-content-between">
 						<button
 							className="btn btn-outline-danger btn-lg "
-							onClick={() => buyNow(products?.data?._id)}
+							onClick={() => buyNow(Product?.data?._id)}
 						>
 							Buy Now
 							<svg
@@ -89,7 +90,7 @@ const ProductDetils = () => {
 						</button>
 					</div>
 				</div>
-			</div> */}
+			</div>
 		</section>
 	);
 };
