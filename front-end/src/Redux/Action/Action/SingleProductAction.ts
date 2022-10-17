@@ -15,7 +15,9 @@ export const GetSingleProduct =
 				type: SINGLE_PRODUCT_LOADING,
 			});
 
-			const res = await axios.get(`http://localhost:5000/api/v1/product/${id}`);
+			const res = await axios.get(
+				`https://frozen-gorge-25425.herokuapp.com/api/v1/product/${id}`
+			);
 
 			dispatch({
 				type: SINGLE_PRODUCT_SUCCESS,

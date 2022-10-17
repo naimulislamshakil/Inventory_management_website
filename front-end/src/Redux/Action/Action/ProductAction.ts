@@ -15,7 +15,7 @@ export const GetProduct =
 			});
 
 			const res = await axios.get(
-				'http://localhost:5000/api/v1/product/popular'
+				'https://frozen-gorge-25425.herokuapp.com/api/v1/product/popular'
 			);
 
 			dispatch({

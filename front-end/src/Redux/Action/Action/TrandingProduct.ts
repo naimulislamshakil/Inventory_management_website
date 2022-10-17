@@ -14,7 +14,9 @@ export const GetTrandingProduct =
 				type: TRANDING_PRODUCT_LOADING,
 			});
 
-			const res = await axios.get('http://localhost:5000/api/v1/tranding');
+			const res = await axios.get(
+				'https://frozen-gorge-25425.herokuapp.com/api/v1/tranding'
+			);
 
 			dispatch({
 				type: TRANDING_PRODUCT_SUCCESS,
